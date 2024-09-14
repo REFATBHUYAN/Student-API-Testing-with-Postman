@@ -132,7 +132,7 @@ newman run students.postman_collection.json -e students.postman_environment.json
 
 Here is a screenshot of the Newman test execution report:
 
-![Newman Report](../Students-API-Testing-with-Postman/photos/newman_report_screenshots.png)
+![Newman Report](https://github.com/REFATBHUYAN/Student-API-Testing-with-Postman/blob/main/photos/newman_report_screenshots.png)
 
 ---
 
