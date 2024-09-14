@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "c7ddf88c-3a9e-4f66-82ce-b25fa9afcbb4",
+		"name": "MD. REFAT BHUYAN 01575267132",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31366108",
+		"_collection_link": "https://restless-spaceship-447305.postman.co/workspace/SQA_API_TESTING~385fe52f-dd13-4ab2-b095-394ffda273cd/collection/31366108-c7ddf88c-3a9e-4f66-82ce-b25fa9afcbb4?action=share&source=collection_link&creator=31366108"
+	},
+	"item": [
+		{
+			"name": "Get Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var statusCode = pm.response.code;\r",
+							"var expectedStatusCode = 200;\r",
+							"\r",
+							"pm.test(\"test statusCode\", function(){\r",
+							"    pm.expect(statusCode).to.eql(expectedStatusCode)\r",
+							"})\r",
+							"\r",
+							"var items = pm.response.json();\r",
+							"\r",
+							"console.log(\"length of the response =\", items.length)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/studentsDetails",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var statusCode = pm.response.code;\r",
+							"var expectedStatusCode = 201;\r",
+							"\r",
+							"pm.test(\"test statusCode\", function(){\r",
+							"    pm.expect(statusCode).to.eql(expectedStatusCode)\r",
+							"})\r",
+							"\r",
+							"var student = pm.response.json()\r",
+							"pm.environment.set(\"id\", student.id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Md\",\r\n    \"middle_name\": \"Refat\",\r\n    \"last_name\": \"Bhuyan\",\r\n    \"date_of_birth\": \"1995-02-07\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/studentsDetails",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var studentData = pm.response.json()\r",
+							"\r",
+							"pm.test(\"test first name is correct\", function(){\r",
+							"    pm.expect(studentData.first_name).to.eql(\"Md\")\r",
+							"})\r",
+							"pm.test(\"test middle_name name is correct\", function(){\r",
+							"    pm.expect(studentData.middle_name).to.eql(\"Refat\")\r",
+							"})\r",
+							"pm.test(\"test last_name name is correct\", function(){\r",
+							"    pm.expect(studentData.last_name).to.eql(\"Bhuyan\")\r",
+							"})\r",
+							"pm.test(\"test date_of_birth is correct\", function(){\r",
+							"    pm.expect(studentData.date_of_birth).to.eql(\"1995-02-07\")\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/studentsDetails/{{id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Technical Skills",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"language\": [\r\n        \"Java\",\r\n        \"JavaScript\"\r\n    ],\r\n    \"yearexp\": \"2\",\r\n    \"lastused\": \"2024-09-09\",\r\n    \"st_id\": {{id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/technicalskills",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"technicalskills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var res = pm.response.json()\r",
+							"\r",
+							"pm.test(\"response status validation\", function(){\r",
+							"    pm.expect(res.status).to.eql(\"true\");\r",
+							"})\r",
+							"pm.test(\"response msg validation\", function(){\r",
+							"    pm.expect(res.msg).eql(\"Add  data success\");\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Permanent_Address\": {\r\n        \"House_Number\": \"27\",\r\n        \"City\": \"Mirpur\",\r\n        \"State\": \"1216\",\r\n        \"Country\": \"Bangladesh\",\r\n        \"PhoneNumber\": [\r\n            {\r\n                \"Std_Code\": \"+880\",\r\n                \"Home\": \"01575267132\",\r\n                \"Mobile\": \"01620453303\"\r\n            },\r\n            {\r\n                \"Std_Code\": \"+880\",\r\n                \"Home\": \"01575267133\",\r\n                \"Mobile\": \"01620453304\"\r\n            }\r\n        ]\r\n    },\r\n    \"stId\": {{id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/addresses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FINAL STUDENT DETAILS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var studentData = pm.response.json()\r",
+							"\r",
+							"pm.test(\"test language is correct\", function(){\r",
+							"    pm.expect(studentData.data.TechnicalDetails[0].language[0]).to.eql(\"Bangla\")\r",
+							"})\r",
+							"pm.test(\"test Year of Experience is correct\", function(){\r",
+							"    pm.expect(studentData.data.TechnicalDetails[0].yearexp).to.eql(\"2\")\r",
+							"})\r",
+							"pm.test(\"test House Number is correct\", function(){\r",
+							"    pm.expect(studentData.data.Address[0].Permanent_Address.House_Number).to.eql(\"27\")\r",
+							"})\r",
+							"pm.test(\"test City is correct\", function(){\r",
+							"    pm.expect(studentData.data.Address[0].Permanent_Address.City).to.eql(\"Mirpur\")\r",
+							"})\r",
+							"pm.test(\"test Country is correct\", function(){\r",
+							"    pm.expect(studentData.data.Address[0].Permanent_Address.Country).to.eql(\"Bangladesh\")\r",
+							"})\r",
+							"pm.test(\"test Mobile is correct\", function(){\r",
+							"    pm.expect(studentData.data.Address[0].Permanent_Address.PhoneNumber[0].Mobile).to.eql(\"01620453303\")\r",
+							"})\r",
+							"pm.test(\"test  Current Address is correct\", function(){\r",
+							"    pm.expect(studentData.data.Address[0].Current_Address).to.eql(null)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/FinalStudentDetails/{{id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"FinalStudentDetails",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
