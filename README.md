@@ -31,7 +31,7 @@ Before you begin, ensure you have met the following requirements:
 Download the Postman collection file for this project:
 
 - **Collection Name**: `Bookin-website-API-Testing-with-Postman - Student API Collection`
-- [Download the collection here](../Bookin-website-API-Testing-with-Postman)
+- [Download the collection here](https://github.com/REFATBHUYAN/Student-API-Testing-with-Postman)
 
 ## Endpoints
 
@@ -132,7 +132,7 @@ newman run students.postman_collection.json -e students.postman_environment.json
 
 Here is a screenshot of the Newman test execution report:
 
-![Newman Report](../Bookin-website-API-Testing-with-Postman/photos/newman_report_screenshots.png)
+![Newman Report](../Students-API-Testing-with-Postman/photos/newman_report_screenshots.png)
 
 ---
 
